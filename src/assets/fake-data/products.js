@@ -441,11 +441,6 @@ const products = [
     desc: "Spice up your meal with our Sizzling Sisig.",
   },
 
-    {
-    
-  },
-
-
 
 
 ];
