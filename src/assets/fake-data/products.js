@@ -26,7 +26,16 @@ import product_22_image_01 from "../images/product_22.1.jpg";
 import product_23_image_01 from "../images/product_23.1.jpg";
 import product_24_image_01 from "../images/product_24.1.jpg";
 import product_25_image_01 from "../images/product_25.1.jpg";
-import product_26_image_01 from "../images/product_26.1.jpg";
+import product_26_image_01 from "../images/product_26.1.png";
+import product_27_image_01 from "../images/product_27.1.png";
+import product_28_image_01 from "../images/product_28.1.png";
+import product_29_image_01 from "../images/product_29.1.png";
+import product_30_image_01 from "../images/product_30.1.png";
+import product_31_image_01 from "../images/product_31.1.png";
+import product_32_image_01 from "../images/product_32.1.png";
+import product_33_image_01 from "../images/product_33.1.jpg";
+import product_34_image_01 from "../images/product_34.1.jpg";
+
 
 
 
@@ -277,9 +286,9 @@ const products = [
 
   {
     id: "23",
-    title: "Truffle Chicken Pasta",
+    title: "Chicken Cacciatore",
     price: 280,
-    image01: product_23_image_01,
+    image01: product_31_image_01,
     
     category: "Italian Food",
     
@@ -288,10 +297,10 @@ const products = [
 
 
   {
-    id: "24",
-    title: "Chicken Parmigiana",
+   id: "24",
+    title: "Minestrone Bouillon",
     price: 280,
-    image01: product_24_image_01,
+    image01: product_32_image_01,
     
     category: "Italian Food",
     
@@ -301,9 +310,9 @@ const products = [
 
   {
     id: "25",
-    title: "Spaghetti Meat balls",
+    title: "Herb Chicken Milanese",
     price: 280,
-    image01: product_25_image_01,
+    image01: product_30_image_01,
     
     category: "Italian Food",
     
@@ -322,20 +331,123 @@ const products = [
     desc: "Spice up your meal with our Sizzling Sisig.",
   },
 
+  {
+    id: "27",
+    title: "Salmon Oreganato",
+    price: 280,
+    image01: product_27_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "28",
+    title: "Mussels Lombardi",
+    price: 280,
+    image01: product_28_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "29",
+    title: "Parmesan Crusted Fish Fillet",
+    price: 280,
+    image01: product_29_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "30",
+    title: "Crispy Chicken Au Poivre",
+    price: 280,
+    image01: product_31_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "31",
+    title: "Tuna Garganelli",
+    price: 280,
+    image01: product_27_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "32",
+    title: "Spaghetti Meat balls",
+    price: 280,
+    image01: product_25_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "33",
+    title: "Truffle Chicken Pasta",
+    price: 280,
+    image01: product_23_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "34",
+    title: "Chicken Parmigiana",
+    price: 280,
+    image01: product_24_image_01,
+    
+    category: "Italian Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "35",
+    title: "Gyoza",
+    price: 280,
+    image01: product_33_image_01,
+    
+    category: "Japanese Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+  {
+    id: "36",
+    title: "Kani salad",
+    price: 280,
+    image01: product_34_image_01,
+    
+    category: "Japanese Food",
+    
+    desc: "Spice up your meal with our Sizzling Sisig.",
+  },
+
+    {
+    
+  },
 
 
 
-  // {
-  //   id: "13",
-  //   title: "Loaf Bread ",
-  //   price: 35.0,
-  //   image01: product_06_image_03,
-  //   image02: product_06_image_02,
-  //   image03: product_06_image_03,
-  //   category: "Bread",
 
-  //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
-  // },
 ];
 
 export default products;
