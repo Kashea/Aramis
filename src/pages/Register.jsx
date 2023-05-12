@@ -1,47 +1,41 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useFormik } from "formik";
-import * as yup from "yup";
+import "../styles/register.css";
 
-const Register = () => {
-  const registerNameRef = useRef();
-  const registerPasswordRef = useRef();
-  const registerEmailRef = useRef();
+function Register() {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
 
-  const validationSchema = yup.object().shape({
-    name: yup.string().required("Please enter your name"),
-    email: yup
-      .string()
-      .email("Please enter a valid email address")
-      .required("Please enter your email"),
-    password: yup
-      .string()
-      .required("Please enter your password")
-      .min(6, "Password must be at least 6 characters"),
-  });
+  const navigate = useNavigate();
 
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      password: "",
-    },
-    validationSchema,
-    onSubmit: (values) => {
-      axios
-        .post("http://127.0.0.1:8000/api/register", values)
-        .then((response) => {
-          const { data } = response;
-          console.log(data.message);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    },
-  });
+  async function signUp() {
+    console.warn(name, password, email, phone, address);
+    let item = { name, password, email, phone, address };
+
+    let result = await fetch("http://127.0.0.1:8000/api/register", {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    result = await result.json();
+    localStorage.setItem("user-info", JSON.stringify(result));
+    navigate("/add");
+  }
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    signUp();
+  };
 
   return (
     <Helmet title="Register">
@@ -51,70 +45,74 @@ const Register = () => {
             <h3 className="text-center mt-5">Sign Up Now!</h3>
           </Row>
           <Row>
-            <Col lg="9" md=" 6" sm="12" className="m-auto text-center">
-              <form onSubmit={formik.handleSubmit} className="form">
+            <Col lg="9" md="6" sm="12" className="m-auto text-center">
+              <form action="" className="form" onSubmit={submitHandler}>
                 <div className="form__group">
                   <input
                     type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder="Name"
-                    required
-                    ref={registerNameRef}
-                    {...formik.getFieldProps("name")}
                   />
-                  {formik.touched.name && formik.errors.name ? (
-                    <div className="text-danger">{formik.errors.name}</div>
-                  ) : null}
                 </div>
 
                 <div className="form__group">
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
-                    required
-                    ref={registerEmailRef}
-                    {...formik.getFieldProps("email")}
                   />
-                  {formik.touched.email && formik.errors.email ? (
-                    <div className="text-danger">{formik.errors.email}</div>
-                  ) : null}
+                </div>
+
+                <div className="form__group">
+                  <input
+                    type="number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Phone Number"
+                  />
+                </div>
+
+                <div className="form__group">
+                  <input
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    placeholder="Address"
+                  />
                 </div>
 
                 <div className="form__group">
                   <input
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
-                    required
-                    ref={registerPasswordRef}
-                    {...formik.getFieldProps("password")}
                   />
-                  {formik.touched.password && formik.errors.password ? (
-                    <div className="text-danger">{formik.errors.password}</div>
-                  ) : null}
                 </div>
 
-                <button
-                  type="submit"
-                  className="addTOCart__btn px-5 fs-6 fw-bold"
-                >
+                <button type="submit" className="addTOCart__btn px-5 fs-6 fw-bold">
                   Sign Up
                 </button>
+
+                <div className="px-3 fs-5 my-5 ">
+                  <p>
+                    Already have an account?{" "}
+                    <Link to="/login">
+                      <span className="text-warning fw-bold">Login here..</span>
+                    </Link>
+                  </p>
+                </div>
               </form>
-              <div className="px-3 fs-5 my-5 ">
-                <p>
-                  Already have an account?{" "}
-                  <Link to="/login">
-                    <span className="text-warning fw-bold">Login here..</span>
-                  </Link>
-                </p>
-              </div>
             </Col>
           </Row>
         </Container>
       </section>
     </Helmet>
   );
-};
+}
 
+export
+ default Register;
 
-
-export default Register;

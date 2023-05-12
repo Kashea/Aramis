@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Pizzas from "../pages/Pizzas";
@@ -15,9 +15,7 @@ import Message from "../pages/Message";
 
 const Routers = () => {
   return (
-    <Router>
-      <Routes>
-        
+    <Routes> 
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
       <Route path="/pizzas" element={<Pizzas />} />
@@ -32,12 +30,8 @@ const Routers = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/message" element={<Message />} />
 
-      </Routes>
-    </Router>
+    </Routes>
   );
 };
 
 export default Routers;
-
-
-
