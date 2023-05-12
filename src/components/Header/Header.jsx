@@ -5,6 +5,8 @@ import { Container } from "reactstrap";
 import logo from "../../assets/images/service-02.png";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import userIcon from "../../assets/images/user_icon2.png";
+
 
 import { cartUiActions } from "../../store/shopping-cart/cartUiSlice";
 
@@ -99,7 +101,7 @@ const Header = () => {
           {/* ======== nav right icons ========= */}
           <div className="nav__right d-flex align-items-center gap-4">
             <span className="user">
-                  <Link to='/login'><i class="ri-user-line"></i></Link>
+                  <Link to='/login'><img src={userIcon}></img></Link>
             </span>
 
             <span className="cart__icon" onClick={toggleCart}>

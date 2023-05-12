@@ -72,6 +72,16 @@
   color: #EDB921 !important;
 }
 
+.user img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.user img:hover {
+  transform: scale(1.1);
+}
+
 .cart__icon i,
 .user i,
 .mobile-menu i {
