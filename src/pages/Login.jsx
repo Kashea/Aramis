@@ -29,7 +29,17 @@ const Login = () => {
             const data = await response.json();
             console.log("Login response:", data);
 
-            // Handle the response data as needed (e.g., set authentication token, redirect to dashboard, show error message)
+            // Check if the login was successful
+            if (data.success) {
+                // Set the authentication token
+                localStorage.setItem("auth_token", data.token);
+
+                // Redirect to the dashboard
+                window.location.href = "/admin";
+            } else {
+                // Show an error message
+                console.error("Login error:", data.message);
+            }
 
         } catch (error) {
             console.error("Login error:", error);

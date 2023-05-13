@@ -19,8 +19,8 @@
         }
 
         .img_size {
-            width: 150px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
         }
 
         .th_color {

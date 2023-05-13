@@ -22,67 +22,62 @@
       <link href="home/css/responsive.css" rel="stylesheet" />
    </head>
    <body>
-      <div class="hero_area">
-         <!-- header section strats -->
-         @include('home.header')
-         <!-- end header section -->
-         <!-- slider section -->
-         @include('home.slider')
-         <!-- end slider section -->
-      </div>
-      <!-- why section -->
-         @include('home.why')
-      <!-- end why section -->
-      
-      <!-- arrival section -->
-      @include('home.new_arrival')
-      <!-- end arrival section -->
-      
-      <!-- product section -->
-      @include('home.product')
-      <!-- end product section -->
 
-      <!-- subscribe section -->
-      @include('home.subscribe')
-      <!-- end subscribe section -->
-      <!-- client section -->
-      @include('home.client')
-      <!-- end client section -->
-      <!-- footer start -->
-      @include('home.footer')
-      <!-- footer end -->
-      @include('home.copyright')
-      <!-- jQery -->
-      <script src="home/js/jquery-3.4.1.min.js"></script>
-      <!-- popper js -->
-      <script src="home/js/popper.min.js"></script>
-      <!-- bootstrap js -->
-      <script src="home/js/bootstrap.js"></script>
-      <!-- custom js -->
-      <script src="home/js/custom.js"></script>
-      <script>
-         // Intercept click event on pagination links
-         $('.pagination-links').on('click', function(e) {
-           e.preventDefault();
+      <header class="header_section">
+         <div class="container">
+
+            <a class="bg-zinc-500" href="{{url('/')}}"><h2 >ADMIN PAGE</h2></a>
+
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+               
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class=""> </span>
+               </button>
+               
+                @if (Route::has('login'))
+                @auth
+            <li class="nav-item">
+                   <form method="POST" action="{{ route('logout') }}" class="inline">
+                         @csrf
+                         <button type="submit" id="logincss" class="btn btn-primary">
+                               {{ __('Log Out') }}
+                        </button>
+                   </form>
+            </li>
+                   @else
+                        <li class="nav-item">
+                           <a class="btn btn-primary" id="logincss" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="btn btn-success" href="{{ route('register') }}">Register</a>
+                        </li>
+                     @endauth
+                   @endif
+
+           </nav>
+        </div>
+        <div class="hero">
+         
+            
+        
+
+        </div>
+      </header>
+      <section class="hero-banner">
+         <div class="container">
+           <div class="row">
+             <div class="col-md-6">
+               <h1>Welcome to Admin Portal</h1>
+               <p>Log in to access the administrative features.</p>
+             </div>
+             <div class="col-md-6">
+               <img src="/admin/assets/images/lockscreen-bg.jpg" alt="Banner Image" class="img-fluid">
+             </div>
+           </div>
+         </div>
+       </section>
        
-           // Get the URL of the clicked link
-           var url = $(this).attr('href');
-       
-           // Use AJAX to load the new page content
-           $.ajax({
-             url: url,
-             type: 'GET',
-             success: function(data) {
-               // Update the page content
-               $('#page-content').html(data);
-       
-               // Scroll back to the top of the page content
-               $('#page-content').scrollTop(0);
-             }
-           });
-         });
-       </script>
-       
-       
+
+      
    </body>
 </html>
