@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
 import "../styles/register.css";
 
 function Register() {
@@ -29,7 +28,7 @@ function Register() {
 
     result = await result.json();
     localStorage.setItem("user-info", JSON.stringify(result));
-    navigate("/add");
+    navigate("/login");
   }
 
   const submitHandler = (e) => {
@@ -113,6 +112,4 @@ function Register() {
   );
 }
 
-export
- default Register;
-
+export default Register;

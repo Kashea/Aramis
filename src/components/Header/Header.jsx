@@ -101,7 +101,7 @@ const Header = () => {
           {/* ======== nav right icons ========= */}
           <div className="nav__right d-flex align-items-center gap-4">
             <span className="user">
-                  <Link to='/login'><img src={userIcon}></img></Link>
+            <Link to="/login"><img src={userIcon} alt="User Icon" /></Link>
             </span>
 
             <span className="cart__icon" onClick={toggleCart}>
